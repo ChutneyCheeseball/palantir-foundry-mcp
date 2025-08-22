@@ -10,7 +10,7 @@ export async function getUserByIdHandler(args: { id: string }): Promise<McpToolR
       content: [
         {
           type: "text",
-          text: formatAsJsonBlock(user),
+          text: formatAsJsonBlock({ user }),
         },
       ],
     };

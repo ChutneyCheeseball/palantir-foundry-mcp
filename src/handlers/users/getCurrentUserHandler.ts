@@ -7,7 +7,7 @@ export async function getCurrentUserHandler(): Promise<McpToolResult> {
     const user = await getCurrentUser();
     return {
       structuredContent: { user },
-      content: [{ type: "text", text: formatAsJsonBlock(user) }],
+      content: [{ type: "text", text: formatAsJsonBlock({ user }) }],
     };
   } catch (err: any) {
     return {
