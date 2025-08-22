@@ -1,43 +1,16 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
-import { z } from "zod";
 
-import { currentUserResource } from "./resources/users/current-user";
-import { userByIdResource } from "./resources/users/user-by-id";
-import { listUsersResource } from "./resources/users/list-users";
-import { echoResource } from "./resources/test-resource";
+import { tools } from "./tools";
+import { registerTools } from "./types";
 
 // Create an MCP server
 const server = new McpServer({
   name: "mcp-foundry-palantir-server",
-  version: "1.0.0"
+  version: "1.0.0",
 });
 
-const userResources = [
-  //currentUserResource,
-  //userByIdResource,
-  //listUsersResource
-  echoResource
-];
-
-for (const resource of userResources) {
-  if (typeof resource.uri === "string") {
-    server.registerResource(
-      resource.name,
-      resource.uri, // string
-      resource.config,
-      resource.readCallback
-    );
-  } else {
-    server.registerResource(
-      resource.name,
-      resource.uri, // ResourceTemplate
-      resource.config,
-      resource.readCallback
-    );
-  }
-}
-
+registerTools(server, tools);
 
 // Connect to STDIO
 const transport = new StdioServerTransport();
@@ -47,7 +20,7 @@ server.connect(transport);
 // server.registerResource(
 //   "greeting",
 //   new ResourceTemplate("greeting://{name}", { list: undefined }),
-//   { 
+//   {
 //     title: "Greeting Resource",
 //     description: "Returns a greeting for a given name"
 //   },
@@ -86,6 +59,7 @@ server.connect(transport);
 //     const users = await listUsers(pageSize, pageToken);
 
 //     return {
+//       structuredContent: {},
 //       content: [{
 //         type: "text",
 //         text: JSON.stringify(users, null, 2)

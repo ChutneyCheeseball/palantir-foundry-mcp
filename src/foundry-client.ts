@@ -1,8 +1,8 @@
 import { createPlatformClient } from "@osdk/client";
-import * as path from 'path';
-import * as dotenv from 'dotenv';
+import * as path from "path";
+import * as dotenv from "dotenv";
 
-dotenv.config({ path: path.resolve(__dirname, '../.env'),  });
+dotenv.config({ path: path.resolve(__dirname, "../.env") });
 
 const token = process.env.FOUNDRY_TOKEN;
 if (!token) {

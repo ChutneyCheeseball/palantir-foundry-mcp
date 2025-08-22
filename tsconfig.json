@@ -9,7 +9,15 @@
     "rootDir": "src",
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@services/*": ["src/services/*"],
+      "@handlers/*": ["src/handlers/*"],
+      "@tools/*": ["src/tools/*"],
+      "@types": ["src/types.ts"],
+      "@utils": ["src/utils.ts"]
+    }
   },
   "include": ["src"]
 }
