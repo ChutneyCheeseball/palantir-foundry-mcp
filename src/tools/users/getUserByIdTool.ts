@@ -6,6 +6,6 @@ export const getUserByIdTool: McpTool = {
   name: "foundry.getUserById",
   title: "Get Foundry User by ID",
   description: "Fetches a Foundry user by their unique ID.",
-  inputSchema: { id: z.string() }, // ✅ simple and clean
+  inputSchema: { id: z.string() },
   handler: getUserByIdHandler,
 };
