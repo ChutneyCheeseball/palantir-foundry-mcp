@@ -1,5 +1,7 @@
 import { getOntologyTool } from "./ontologies/getOntologyTool";
 import { listOntologiesTool } from "./ontologies/listOntologiesTool";
+import { getObjectTool } from "./ontologies/objects/getObjectTool";
+import { listObjectsTool } from "./ontologies/objects/listObjectsTool";
 import { listObjectTypesTool } from "./ontologies/objectTypes/listObjectTypesTool";
 import { getCurrentUserTool } from "./users/getCurrentUserTool";
 import { getUserByIdTool } from "./users/getUserByIdTool";
@@ -12,5 +14,6 @@ const userTools = [getCurrentUserTool, getUserByIdTool, listUsersTool, searchUse
 // ONTOLOGIES
 const ontologyTools = [listOntologiesTool, getOntologyTool];
 const objectTypeTools = [listObjectTypesTool];
+const objectTools = [listObjectsTool, getObjectTool];
 
-export const tools = [...userTools, ...ontologyTools, ...objectTypeTools];
+export const tools = [...userTools, ...ontologyTools, ...objectTypeTools, ...objectTools];

@@ -3,7 +3,7 @@ import { z } from "zod";
 import { searchUsersHandler } from "@handlers/users/searchUsersHandler";
 
 export const searchUsersTool: McpTool = {
-  name: "foundry.users.searchUsers",
+  name: "foundry.users.search",
   title: "Search Users",
   description: "Searches for Foundry users by query string.",
   inputSchema: {

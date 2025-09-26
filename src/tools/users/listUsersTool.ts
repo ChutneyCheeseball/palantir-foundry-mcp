@@ -3,7 +3,7 @@ import { listUsersHandler } from "@handlers/users/listUsersHandler";
 import { McpTool } from "@types";
 
 export const listUsersTool: McpTool = {
-  name: "foundry.users.listUsers",
+  name: "foundry.users.list",
   title: "List Foundry Users",
   description: "Retrieves a paginated list of Foundry users.",
   inputSchema: {
