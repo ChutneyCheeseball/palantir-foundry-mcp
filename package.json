@@ -18,7 +18,6 @@
   },
   "scripts": {
     "dev": "node -r ts-node/register -r tsconfig-paths/register src/mcp-server.ts",
-    "inspect-old": "npx @modelcontextprotocol/inspector --command \"npm run dev\"",
     "inspect": "npx @modelcontextprotocol/inspector --config mcp.json --server foundry-server"
   }
 }
