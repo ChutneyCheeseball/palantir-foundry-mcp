@@ -3,15 +3,11 @@
     "@modelcontextprotocol/sdk": "^1.17.0",
     "@osdk/client": "^2.2.1",
     "@osdk/foundry": "^2.24.0",
-    "axios": "^1.10.0",
     "dotenv": "^16.3.1",
-    "express": "^5.1.0",
-    "zod": "^3.25.67",
-    "zod-to-json-schema": "^3.24.6"
+    "zod": "^3.25.67"
   },
   "devDependencies": {
     "@modelcontextprotocol/inspector": "^0.16.8",
-    "@types/express": "^5.0.3",
     "@types/node": "^24.0.4",
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",
