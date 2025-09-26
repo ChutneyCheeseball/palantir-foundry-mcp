@@ -4,13 +4,31 @@ import { foundryClient as client } from "../../../foundry-client";
 export async function searchObjects(
   ontology: string,
   objectType: string,
-  queryParams: {
-    where?: any;
-    orderBy?: any;
+  body: {
+    where?: any; // SearchJsonQueryV2
+    orderBy?: {
+      orderType?: "fields" | "relevance";
+      fields: { field: string; direction?: "asc" | "desc" }[];
+    };
     pageSize?: number;
     pageToken?: string;
     select: string[];
-  } = { select: [], pageSize: 10 }
+    excludeRid?: boolean;
+    snapshot?: boolean;
+  },
+  queryParams?: {
+    artifactRepository?: string;
+    packageName?: string;
+  }
 ) {
-  return OntologyObjectsV2.search(client, ontology, objectType, queryParams);
+  return OntologyObjectsV2.search(
+    client,
+    ontology,
+    objectType,
+    {
+      ...body,
+      pageSize: body.pageSize ?? 10, // enforce default
+    },
+    queryParams
+  );
 }

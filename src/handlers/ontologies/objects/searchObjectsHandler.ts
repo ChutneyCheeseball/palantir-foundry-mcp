@@ -6,19 +6,36 @@ export async function searchObjectsHandler(args: {
   ontology: string;
   objectType: string;
   where?: any;
-  orderBy?: string;
+  orderBy?: {
+    orderType?: "fields" | "relevance";
+    fields: { field: string; direction?: "asc" | "desc" }[];
+  };
   pageSize?: number;
   pageToken?: string;
   select: string[];
+  excludeRid?: boolean;
+  snapshot?: boolean;
+  artifactRepository?: string;
+  packageName?: string;
 }): Promise<McpToolResult> {
   try {
-    const result = await searchObjects(args.ontology, args.objectType, {
-      where: args.where,
-      orderBy: args.orderBy,
-      pageSize: args.pageSize,
-      pageToken: args.pageToken,
-      select: args.select,
-    });
+    const result = await searchObjects(
+      args.ontology,
+      args.objectType,
+      {
+        where: args.where,
+        orderBy: args.orderBy,
+        pageSize: args.pageSize,
+        pageToken: args.pageToken,
+        select: args.select,
+        excludeRid: args.excludeRid,
+        snapshot: args.snapshot,
+      },
+      {
+        artifactRepository: args.artifactRepository,
+        packageName: args.packageName,
+      }
+    );
 
     const response = { objects: result };
     return {
