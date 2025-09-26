@@ -51,7 +51,7 @@ npm run inspect
 This will:
 
 - Launch the MCP Inspector proxy.
-- Open the browser UI at http://localhost:6277.
+- Open the browser UI.
 - Start your MCP server with the configuration from `mcp.json`.
 
 ---
