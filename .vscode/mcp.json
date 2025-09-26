@@ -1,0 +1,8 @@
+{
+  "servers": {
+    "foundry-server": {
+      "command": "node",
+      "args": ["-r", "ts-node/register", "-r", "tsconfig-paths/register", "src/mcp-server.ts"]
+    }
+  }
+}
