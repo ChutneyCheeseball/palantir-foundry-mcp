@@ -25,7 +25,19 @@ development.
 npm install
 ```
 
-### 2. Development (with Inspector)
+### 2. Authentication
+
+This project requires a Foundry API token to authenticate requests.
+
+Create a `.env` file in the project root with the following content:
+
+```env
+FOUNDRY_TOKEN=<your-foundry-token-here>
+```
+
+---
+
+### 3. Development (with Inspector)
 
 Inspector is installed as a dev dependency. A server configuration file
 (`mcp.json`) defines how to start the Foundry MCP server.
@@ -36,21 +48,11 @@ Run:
 npm run inspect
 ```
 
-This will: - Launch the MCP Inspector proxy. - Open the browser UI at
-http://localhost:6277. - Start your MCP server with the configuration
-from `mcp.json`.
+This will:
 
-> **Note:** We recommend using `npm run inspect` for demos and
-> evaluation.\
-> This ensures a clean startup without npm's extra STDOUT chatter.
-
-### 3. Run server directly
-
-For direct runs without Inspector:
-
-```bash
-npm run dev
-```
+- Launch the MCP Inspector proxy.
+- Open the browser UI at http://localhost:6277.
+- Start your MCP server with the configuration from `mcp.json`.
 
 ---
 
@@ -65,31 +67,9 @@ npm run dev
 
 ---
 
-## 🔑 Authentication
-
-This project requires a Foundry API token to authenticate requests.
-
-Create a `.env` file in the project root with the following content:
-
-```env
-FOUNDRY_TOKEN=<your-foundry-token-here>
-```
-
----
-
-## 📦 Scripts
-
-- `npm run dev` → Start server directly with ts-node.\
-- `npm run inspect` → Launch MCP Inspector with `mcp.json` config
-  (recommended for development).\
-- `npm run build` → Compile TypeScript to `dist/`.\
-- `npm start` → Run compiled server from `dist/`.
-
----
-
 ## 📝 Notes
 
 - The server currently implements **Ontologies** (ontologies, object
-  types, objects) and **Users** (list, get, search, current).\
+  types, objects) and **Users** (list, get, search, current).
 - Additional functionality can be added incrementally by following the
   established **service → handler → tool** pattern.
